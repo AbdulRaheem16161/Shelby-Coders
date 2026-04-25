@@ -1,24 +1,15 @@
 using UnityEngine;
-using StarterAssets;
 
-public class PythonInputReader : MonoBehaviour
+public class InputReader : MonoBehaviour
 {
     public FileController fileController;
-    public StarterAssetsInputs starterInputs;
+    public StarterAssets.StarterAssetsInputs starterInputs;
 
     void Update()
     {
-        if (fileController == null || starterInputs == null)
-            return;
-
         string cmd = fileController.currentCommand;
 
-        HandleCommand(cmd);
-    }
-
-    void HandleCommand(string cmd)
-    {
-        // Reset each frame (important for movement feel)
+        // reset every frame (IMPORTANT)
         starterInputs.move = Vector2.zero;
         starterInputs.jump = false;
 
@@ -42,11 +33,6 @@ public class PythonInputReader : MonoBehaviour
 
             case "jump":
                 starterInputs.JumpInput(true);
-                Debug.Log("Jump triggered");
-                break;
-
-            default:
-                // idle = no movement
                 break;
         }
     }

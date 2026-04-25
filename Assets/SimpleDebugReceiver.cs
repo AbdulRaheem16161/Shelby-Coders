@@ -3,8 +3,10 @@ using System.IO;
 
 public class FileController : MonoBehaviour
 {
+    [Header("File Settings")]
     public string filePath = @"C:\Users\snekr\Files to save in SSD\Shelby Coders\command.txt";
 
+    [Header("Current Command")]
     public string currentCommand = "";
 
     private string lastCommand = "";
